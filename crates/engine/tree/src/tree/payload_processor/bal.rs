@@ -521,8 +521,7 @@ mod tests {
         assert_eq!(items[2], (addr2, StorageKey::from(U256::from(201))));
 
         // Test 5: Empty range
-        let items: Vec<_> = BALSlotIter::new(&bal, 5..5).collect();
-        assert_eq!(items.len(), 0);
+        assert_eq!(BALSlotIter::new(&bal, 5..5).count(), 0);
 
         // Test 6: Range beyond end (starts at index 6)
         let items: Vec<_> = BALSlotIter::new(&bal, 6..100).collect();
